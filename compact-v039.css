@@ -1,0 +1,54 @@
+/* Compact workspace: retain the existing palette and theme variables. */
+#app .top{height:auto!important;min-height:58px;gap:10px;padding:7px 18px}
+#app .top #brand img{width:38px;height:38px;padding:2px;border-radius:7px}
+#app .top #brand span{font-size:15px;line-height:1.2}#app .top #brand small{font-size:7px;letter-spacing:1.3px;margin-top:3px}
+#app .top .header-account{gap:0;margin-left:8px;display:grid;grid-template-columns:max-content max-content;justify-content:start;align-items:center;column-gap:14px}
+#app .header-account #signedInUser{font-size:calc(11px * var(--font-scale,1));min-height:0;line-height:1.4}
+#app .header-account #connectionIndicator{font-size:calc(10px * var(--font-scale,1));min-height:0;padding:0}
+#app .header-account #workspaceStatus{grid-column:1/-1;font-size:calc(9px * var(--font-scale,1));line-height:1.5}
+#app .header-ink{padding:7px 10px;font-size:12px;min-height:36px}#app .header-ink svg{width:17px;height:17px}
+#app #tabletWorkspace{max-width:none}
+#app #main{max-width:none;padding:16px clamp(14px,2vw,30px) 20px!important}
+#app #main h1{font-size:calc(24px * var(--font-scale,1));line-height:1.2;letter-spacing:-.5px;margin:5px 0 8px}
+#app #main h2{font-size:calc(16px * var(--font-scale,1));line-height:1.35;letter-spacing:-.2px;margin:0 0 8px}
+#app #main h3{font-size:calc(14px * var(--font-scale,1));margin:0 0 6px;line-height:1.4}
+#app #main p{line-height:1.5;margin-bottom:10px}#app #main .muted{font-size:calc(12px * var(--font-scale,1))}#app #main .small{font-size:calc(11px * var(--font-scale,1));line-height:1.5}
+#app #main .eyebrow{font-size:calc(9px * var(--font-scale,1));letter-spacing:1.3px}
+#app #main .card{padding:14px;border-radius:12px;margin:10px 0}
+#app #main .section-title{gap:8px;margin:0 0 7px}#app #main .section-title h2{margin:0;display:flex;align-items:center;gap:6px}#app #main .section-title h2 svg{width:17px;height:17px}
+#app #main button{min-height:36px;padding:8px 11px;font-size:calc(12px * var(--font-scale,1));border-radius:8px}
+#app #main button svg{width:18px;height:18px}#app #main .text-button{padding:5px 3px;font-size:calc(11px * var(--font-scale,1));min-height:30px}
+#app #main .row{gap:8px}#app #main .two{gap:12px}
+#app #main label{font-size:calc(11px * var(--font-scale,1));margin:10px 0 6px;line-height:1.45}
+#app #main input:not([type=checkbox]):not([type=color]):not([type=range]),#app #main select{padding:8px 10px;min-height:36px;font-size:calc(13px * var(--font-scale,1));border-radius:8px}
+#app #main textarea{padding:10px;font-size:calc(13px * var(--font-scale,1));line-height:1.6;border-radius:8px}
+#app #main .item{padding:10px;gap:9px;margin:7px 0;border-radius:9px}
+#app #main .item .symbol{width:30px;height:32px;border-radius:7px}#app #main .item .symbol svg{width:17px;height:17px}
+#app #main .item strong{font-size:calc(12px * var(--font-scale,1));line-height:1.4}#app #main .item small{font-size:calc(10px * var(--font-scale,1));line-height:1.45;margin-top:3px}
+#app #main .empty{padding:15px 10px;margin:7px 0;border-radius:9px;font-size:calc(11px * var(--font-scale,1));line-height:1.6}
+#app #main .grid{gap:10px}#app #main .tool{min-height:84px;padding:12px;border-radius:10px}
+#app #main .tool svg{width:20px;height:20px;margin-bottom:7px}#app #main .tool strong{font-size:calc(12px * var(--font-scale,1))}#app #main .tool small{font-size:calc(10px * var(--font-scale,1));line-height:1.5;margin-top:4px}
+#app #main .tabs{margin:12px 0;gap:5px;padding-bottom:3px}#app #main .tabs button{min-height:33px;font-size:calc(11px * var(--font-scale,1));padding:6px 10px}
+#app #main .hero{min-height:0;margin:12px 0;padding:15px 18px;border-radius:12px}
+#app #main .hero h2{font-size:calc(20px * var(--font-scale,1));margin:0 0 4px}#app #main .hero p{font-size:calc(12px * var(--font-scale,1));margin:0}
+#app #main .dashboard-heading{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:12px}#app #main .dashboard-heading h1{margin:3px 0 4px}#app #main .dashboard-heading p{margin:0}
+#app #main .dashboard-capture{display:flex;justify-content:space-between;align-items:center;gap:20px}
+#app #main .dashboard-capture button{display:flex;align-items:center;justify-content:center;gap:6px;margin:0;white-space:nowrap}
+#app #main .dashboard-metrics{padding:10px 0;margin:0 0 16px}#app #main .dashboard-metrics b{font-size:calc(22px * var(--font-scale,1));line-height:1.3}#app #main .dashboard-metrics span{font-size:calc(10px * var(--font-scale,1))}
+#app #main .dashboard-sections{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+#app #main .dashboard-panel{min-width:0}#app #main .dashboard-panel .section-title{min-height:30px}#app #main .dashboard-panel h2{font-size:calc(14px * var(--font-scale,1))}
+#app #main .dashboard-tools{grid-template-columns:repeat(4,minmax(0,1fr))}#app #main .dashboard-sample{margin-top:8px}
+#app #main #screen[data-view=courses],#app #main #screen[data-view=settings]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;align-items:start}
+#app #main #screen[data-view=courses]>:not(.card),#app #main #screen[data-view=settings]>:not(.card){grid-column:1/-1}
+#app #main .title-input{font-size:calc(21px * var(--font-scale,1))!important;padding:5px 0!important}
+#app #main .sound-bars{height:42px;margin-top:5px}#app #main #timer{font-size:calc(24px * var(--font-scale,1))}#app #main .record-buttons{margin:10px 0}
+#app #main details{padding-top:10px;margin-top:10px}
+#app #tabletWorkspace.split #main{padding:14px 18px 20px!important}#app #tabletWorkspace.split .dashboard-sections{grid-template-columns:1fr}#app #tabletWorkspace.split .dashboard-tools{grid-template-columns:repeat(2,minmax(0,1fr))}#app #tabletWorkspace.split .dashboard-capture{flex-direction:column;align-items:flex-start}
+#app #inkPanel{padding:12px 16px 20px}#app .ink-head h2{font-size:18px}#app .ink-head{margin-bottom:7px}
+#app #quickAccess{padding-top:4px;padding-bottom:max(4px,env(safe-area-inset-bottom))}#app #appFooter{font-size:7px;line-height:1.3}
+@media(min-width:1400px){#app #main .grid:not(.dashboard-tools){grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1050px){#app .top #brand span{display:none!important}#app #main .dashboard-capture{flex-wrap:wrap;gap:12px}#app #main .dashboard-sections{grid-template-columns:repeat(2,minmax(0,1fr))}#app #main .dashboard-panel:last-child{grid-column:1/-1}#app #main .dashboard-tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:699px){#app .top{min-height:58px;padding:6px 10px;gap:6px}#app .header-account{margin-left:0!important;display:flex!important}#app .header-account #signedInUser{font-size:11px}#app .header-ink{min-height:40px;padding:8px}#app #main{padding:12px 12px 18px!important}#app #main h1{font-size:calc(22px * var(--font-scale,1))}#app #main .dashboard-heading{align-items:flex-start;gap:8px}#app #main .dashboard-heading>.pill{font-size:8px;padding:5px 7px}#app #main .dashboard-capture{padding:13px}#app #main .dashboard-capture .row{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}#app #main .dashboard-capture button{min-height:44px;white-space:normal}#app #main .dashboard-capture button:last-child{grid-column:1/-1}#app #main .dashboard-sections{grid-template-columns:1fr;gap:12px}#app #main .dashboard-panel:last-child{grid-column:auto}#app #main #screen[data-view=courses],#app #main #screen[data-view=settings]{grid-template-columns:1fr}#app #main button:not(.text-button){min-height:44px}#app #main input:not([type=checkbox]):not([type=color]):not([type=range]),#app #main select{min-height:44px;font-size:16px}#app #main .dashboard-metrics b{font-size:calc(20px * var(--font-scale,1))}#app #main .dashboard-metrics span{font-size:9px}}
+#app #main .dashboard-tools .tool{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:9px;row-gap:3px;align-content:center;min-height:66px;padding:10px 12px}
+#app #main .dashboard-tools .tool svg{grid-column:1;grid-row:1/3;align-self:center;margin:0;width:20px;height:20px}
+#app #main .dashboard-tools .tool strong,#app #main .dashboard-tools .tool small{grid-column:2;margin:0}

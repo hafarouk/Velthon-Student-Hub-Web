@@ -55,3 +55,5 @@ body.keyboard-open #auth{grid-template-columns:1fr;grid-template-rows:minmax(0,1
 .auth-company .company-signature strong{font-size:14px;letter-spacing:3px}
 .auth-company .company-signature span{font-size:7px;letter-spacing:1.25px;margin-top:2px}
 @media(max-width:699px){.auth-company .company-signature img{width:32px!important;height:32px!important;padding:2px}.auth-company .company-signature strong{font-size:10px;letter-spacing:1.7px}.auth-company .company-signature span{font-size:5px;letter-spacing:.6px}}
+
+.auth-company .company-signature img{background:#fff!important}

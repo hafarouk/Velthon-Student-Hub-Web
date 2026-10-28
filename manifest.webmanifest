@@ -1,1 +1,1 @@
-{"name": "VELTHON Student Hub", "short_name": "Student Hub", "start_url": "./", "scope": "./", "display": "standalone", "theme_color": "#164e49", "background_color": "#f8f7f1", "icons": [{"src": "logo-navy.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any"}]}
+{"name": "VELTHON Student Hub", "short_name": "Student Hub", "start_url": "./", "scope": "./", "display": "standalone", "theme_color": "#164e49", "background_color": "#f8f7f1", "icons": [{"src": "logo-student-v034.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any"}]}

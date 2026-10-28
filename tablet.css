@@ -48,3 +48,10 @@ body.keyboard-open #auth{grid-template-columns:1fr;grid-template-rows:minmax(0,1
 @media(max-width:699px){#auth{grid-template-rows:110px minmax(0,1fr)}#auth .auth-story>.student-logo-frame{width:84px;height:84px;margin:0;padding:3px;border-width:2px;box-shadow:none}.auth-company .company-signature{gap:8px}.auth-company .company-signature img{width:40px!important;height:40px!important;padding:2px}.auth-company .company-signature strong{font-size:12px;letter-spacing:2px}.auth-company .company-signature span{font-size:6px;letter-spacing:.8px}}
 @media(max-width:379px){#auth .auth-art{padding:10px 14px}#auth .company-credit p{font-size:6px!important}.auth-company .company-signature{gap:5px}.auth-company .company-signature strong{font-size:10px;letter-spacing:1.5px}.auth-company .company-signature span{font-size:5px}}
 @media(max-width:699px) and (max-height:700px){#auth{grid-template-rows:96px minmax(0,1fr)}#auth .auth-art{padding-top:8px;padding-bottom:8px}#auth .auth-story>.student-logo-frame{width:72px;height:72px}}
+
+/* Compact company credit with a positive mark on an ivory backing. */
+.auth-company .company-signature{gap:10px}
+.auth-company .company-signature img{width:46px!important;height:46px!important;padding:3px;background:#fffdf5!important;border:1px solid #d2b05e99;border-radius:2px;box-shadow:none}
+.auth-company .company-signature strong{font-size:14px;letter-spacing:3px}
+.auth-company .company-signature span{font-size:7px;letter-spacing:1.25px;margin-top:2px}
+@media(max-width:699px){.auth-company .company-signature img{width:32px!important;height:32px!important;padding:2px}.auth-company .company-signature strong{font-size:10px;letter-spacing:1.7px}.auth-company .company-signature span{font-size:5px;letter-spacing:.6px}}

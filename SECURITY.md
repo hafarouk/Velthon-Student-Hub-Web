@@ -1,0 +1,11 @@
+# Security scope
+
+No PHP runtime, PHP packages, SQL interpreter in the browser, server file upload handler or public registration endpoint is deployed by this repository. PHP-specific injection, file inclusion and deserialization issues are therefore not applicable to this implementation; this is not a claim that all vulnerabilities have been eliminated.
+
+Backend protections: password verification with salted PBKDF2; credentials in runtime secrets; opaque random sessions stored as server-keyed hashes; one-hour expiry; origin binding; server-side revocation on logout; disabled-account and changed-verifier checks; persistent per-account/per-IP login attempt limits; generic credential failures; bounded JSON bodies; prepared SQL statements; no authentication data in public source. The service needs a separate hosting account; GitHub Pages only serves the frontend.
+
+Frontend protections: encrypted per-user local vault using AES-GCM and a password-derived key; escaped text rendering; no server session token stored persistently; no arbitrary OAuth grants; a meta Content Security Policy restricting script, worker and connection sources; no credentials in URL parameters or service worker caches.
+
+Limitations: public static assets are not access restricted. GitHub Pages does not let this repository set all security response headers (for example frame-ancestors/X-Frame-Options). The service's same-origin responses have additional security headers. Shared GitHub Pages origin means other content hosted under this owner's github.io origin is inside the same origin trust boundary. Do not host untrusted apps on that origin. A dedicated custom domain would isolate this application better. CDN libraries are version pinned, not fully vendored or comprehensively independently audited. Cached code/models and encrypted browser storage are not centrally erasable. Password-only trial accounts have no MFA or self-service password recovery. Application access does not protect against a compromised browser/device, weak/shared passwords or malicious browser extensions. A formal penetration test has not been performed.
+
+Report security issues privately to the repository owner; never attach real passwords, tokens or student files in public issues.

@@ -140,3 +140,8 @@ The public sign-in page follows the approved navy/cream/gold design: a thin squa
 Authentication handlers, backend accounts, authorization, consent receipts, recording and storage are unchanged. No public signup or provider login was added. Existing trial users remain Emma, George and Hany. Authenticated app code and v048 capture changes are retained. Original company artwork is used in the footer; approved product artwork has a light lettering variant. Fonts and Phosphor icons are bundled locally with their licenses. Generated study scenes are illustrative and do not establish recording accuracy.
 
 Validation: browser checks at desktop 1505×1045 CSS pixels, phone 390px and tablet 834px; no horizontal overflow; logo colours and thin border; sign-in focus from guide; offline unlock control; video reached decoded readyState 4 and the end of its 11-second duration; guide dialogs, native closing and animation controls. Visual comparison and fix history are in design-qa.md. Real login was not exercised with personal credentials. Desktop browser extension telemetry errors were observed, with no app-source console errors. Existing audio/assets and capture regression checks pass.
+
+
+### v050 · Workspace and notebook visual update
+
+Signed-in workspace now shares the navy, cream and gold brand palette and regular-weight Inter typography. Notebook commands use Phosphor line icons, a compact note header, collapsible menus, and a connected vertical rail with all 16 drawing tools and hover names. Colour, thickness and opacity remain accessible. Existing account restrictions, recording behavior, note content and provider calendar colours are retained.

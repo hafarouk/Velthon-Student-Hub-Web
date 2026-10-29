@@ -21,3 +21,14 @@ This is a trial, not a security certification. Optional document and local model
 ## Security reports
 
 Do not post credentials or private records in public issues. Contact the repository owner privately. See SECURITY.md for control details and remaining limitations.
+
+
+
+## Web 0.4.0 — microphone and notebook studio
+
+- Microphone input test, raw/processed dBFS and software gain readout, user-gesture audio-context unlock/resume, stale-device and permission errors. Lecture capture disables browser noise suppression/AGC and uses software gain with a compressor (automatic up to 16×; lecture-hall up to 32×). The saved recording and speech engine share the processed signal. A visible interruption warning reports suspended audio, muted input and stalled frames.
+- Compact notebook title and top toolbars; expandable ink/page/text settings; split-screen and full-width writing. Pen, pencil, highlighter, pixel/stroke erasers, box/lasso selection, move, resize, ink rotation, layer order, copy/cut/paste/duplicate, undo/redo, typed text and formatting, line/arrow/rectangle/ellipse/triangle/diamond, smart shape conversion, fill/dashes/grid snap, image/table insertion, transient laser pointer, six paper templates, background colour, zoom, stylus-only mode and keyboard shortcuts. Shift constrains circles/squares and line angles.
+- Handwriting to reviewed editable text uses the browser recognizer if available, otherwise the prepared free OCR engine. Photo Scan to Text supports camera capture or image upload, crop, rotation, document contrast, editable OCR, note insertion/new-note creation, copy/text export, and retained original photos. Recognition is local; initial engine/model downloads require internet. Cursive, equations and complex layouts still need review.
+- PNG/PDF exports preserve the rendered page. SVG exports editable vector ink/text/images; erased pixels and some styling differ, so use PNG/PDF for exact appearance.
+
+Validation: JavaScript syntax and asset-reference checks; quiet-input/silence/clipping/interruption and shape-recognition checks; Chromium interactions for drawing, undo/redo, selection, transforms, text and the scan review/insertion flow (OCR result stubbed); synthetic microphone integration verifies the actual Web Audio/MediaRecorder graph and saved decodable non-silent audio. Physical iPad/Android microphone pickup and recognition accuracy require a device/room test. Existing 15-minute recording limit remains.

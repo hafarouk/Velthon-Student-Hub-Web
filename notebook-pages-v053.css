@@ -14,3 +14,9 @@
 .notebook-page-fold{position:absolute;z-index:10;pointer-events:none;transform-origin:top right;backface-visibility:visible;animation:notebook-corner-curl .42s cubic-bezier(.3,.05,.3,1) both;filter:drop-shadow(-7px 9px 8px #142d4a44)}@keyframes notebook-corner-curl{0%{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);transform:none;opacity:1}35%{clip-path:polygon(0 0,70% 0,100% 35%,100% 100%,0 100%);transform:perspective(1000px) rotateY(-13deg) skewY(-2deg);opacity:1}75%{clip-path:polygon(0 15%,35% 0,100% 75%,100% 100%,0 100%);transform:perspective(1000px) rotateY(-70deg) translateX(-18%) rotateZ(-9deg);opacity:.8}100%{clip-path:polygon(0 85%,5% 80%,30% 100%,0 100%);transform:perspective(1000px) rotateY(-135deg) translateX(-38%) rotateZ(-18deg);opacity:0}}@media(prefers-reduced-motion:reduce){.notebook-page-fold{display:none;animation:none}}
 /* The fold overlay owns page motion; keep paper geometry stable for its corner control. */
 #handCanvas.page-turn-next,#handCanvas.page-turn-back{animation:none!important}
+
+.notebook-overview{position:relative;padding:.55rem .75rem;border:1px solid #c8d0d5;border-radius:.65rem;margin:.45rem 0;background:var(--card,#fffdf8);color:var(--ink,#193650)}
+.notebook-overview summary{cursor:pointer;min-height:32px;line-height:32px}
+.notebook-overview input{margin:.25rem .5rem .25rem 0;max-width:100%}
+.notebook-overview-list{display:flex;flex-wrap:wrap;gap:.4rem;padding:.45rem 0;max-height:180px;overflow:auto}
+.notebook-overview button{min-height:36px}

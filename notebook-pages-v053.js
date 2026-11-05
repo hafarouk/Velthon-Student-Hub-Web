@@ -21,6 +21,51 @@ if(typeof document==='object')(()=>{
  const make=(label,icon,callback,disabled=false)=>{const b=document.createElement('button');b.type='button';b.title=label;b.setAttribute('aria-label',label);b.innerHTML=svg(icon);b.disabled=disabled;b.onclick=callback;return b;};
  const previous=make('Previous page','caret-left',()=>changePage(siblings[index-1].id,-1),index===0),next=make('Next page','caret-right',()=>changePage(siblings[index+1].id,1),index===siblings.length-1),count=document.createElement('span');count.className='notebook-page-count';count.setAttribute('aria-live','polite');count.textContent='Page '+(index+1)+' of '+siblings.length;
  bar.append(make('New notebook','notebook',newNotebook),previous,count,next,make('Add page','plus',addPage));const corner=make(index===siblings.length-1?'Add page':'Turn the page','arrow-up-right',()=>index===siblings.length-1?addPage():changePage(siblings[index+1].id,1));corner.className='notebook-curl';const stage=document.querySelector('.studio-stage');if(stage){stage.append(corner);pageGeometryObserver?.disconnect();const align=()=>{if(!corner.isConnected)return;const c=$('handCanvas').getBoundingClientRect(),r=stage.getBoundingClientRect();corner.style.setProperty('--corner-right',Math.max(0,r.right-c.right)+'px');corner.style.setProperty('--corner-top',(c.top-r.top)+'px');};if(window.ResizeObserver){pageGeometryObserver=new ResizeObserver(align);pageGeometryObserver.observe(stage);pageGeometryObserver.observe($('handCanvas'));}stage.querySelector('.studio-paper-scroll')?.addEventListener('scroll',align,{passive:true});requestAnimationFrame(align);}else bar.append(corner);$('inkBody').append(bar);
+
+ // Browse pages in this notebook without replacing the drawing controls.
+ const overview=document.createElement('details');
+ overview.className='notebook-overview';
+ const summary=document.createElement('summary');
+ summary.textContent='Pages & bookmarks';
+ const search=document.createElement('input');
+ search.type='search';
+ search.placeholder='Search page number or text';
+ search.setAttribute('aria-label','Search notebook pages');
+ const bookmark=document.createElement('button');
+ bookmark.type='button';
+ const updateBookmark=()=>{
+   bookmark.textContent=current.bookmarked?'Remove bookmark':'Bookmark this page';
+   bookmark.setAttribute('aria-pressed',String(Boolean(current.bookmarked)));
+ };
+ updateBookmark();
+ const list=document.createElement('div');
+ list.className='notebook-overview-list';
+ const showPages=()=>{
+   const query=search.value.trim().toLowerCase();
+   const results=siblings.flatMap((page,i)=>{
+     const body=(page.strokes||[]).filter(stroke=>stroke.tool==='text').map(stroke=>stroke.text).join(' ');
+     const label='Page '+(i+1)+(page.bookmarked?' · Bookmarked':'');
+     if(![label,page.title,page.text,body].join(' ').toLowerCase().includes(query))return [];
+     const button=document.createElement('button');
+     button.type='button';
+     button.textContent=label+(page.id===current.id?' · Current':'');
+     button.disabled=page.id===current.id;
+     button.onclick=()=>changePage(page.id,i-index);
+     return [button];
+   });
+   list.replaceChildren(...(results.length?results:[document.createTextNode('No matching pages')]));
+ };
+ bookmark.onclick=async()=>{
+   const previous=current.bookmarked;
+   bookmark.disabled=true;
+   current.bookmarked=!previous;
+   try{await persist();}catch(error){current.bookmarked=previous;notify(error.message,true);}
+   finally{updateBookmark();showPages();bookmark.disabled=false;}
+ };
+ search.oninput=showPages;
+ overview.addEventListener('toggle',()=>{if(overview.open)showPages();});
+ overview.append(summary,search,bookmark,list);
+ bar.after(overview);
  const rail=document.querySelector('.ribbon-vertical');if(rail){for(const [id,label,icon]of [['handSmart','Smart shapes','magic-wand'],['inkConvert','Recognize shape','shapes'],['inkText','Ink → text','text-t'],['inkImage','Insert image','image'],['inkTable','Insert table','table'],['inkScan','Scan to text','scan']]){const button=make(label,icon,()=>{const target=$(id);target?.click();if(id==='handSmart')button.setAttribute('aria-pressed',String(target.checked));});button.dataset.tooltip=label;if(id==='handSmart')button.dataset.smartToggle='';if(id==='handSmart')button.setAttribute('aria-pressed',String($('handSmart').checked));rail.append(button);}}
  const quick=document.querySelector('.ribbon-quick');if(quick){for(const tool of ['pencil','highlighter','line','rectangle','ellipse','text','lasso','pan']){const source=rail?.querySelector('[data-ink-tool="'+tool+'"]');if(!source)continue;const copy=source.cloneNode(true);copy.onclick=()=>source.click();quick.append(copy);}for(const [id,label,icon]of [['handSmart','Smart shapes','magic-wand'],['inkText','Ink → text','text-t'],['inkImage','Insert image','image'],['inkScan','Scan to text','scan']]){const button=make(label,icon,()=>{const target=$(id);target?.click();if(id==='handSmart'){button.setAttribute('aria-pressed',String(target.checked));rail?.querySelector('[aria-label="Smart shapes"]')?.setAttribute('aria-pressed',String(target.checked));}});if(id==='handSmart'){button.dataset.smartToggle='';button.setAttribute('aria-pressed',String($('handSmart').checked));}quick.append(button);}}
  $('addInk').title='Add page';$('addInk').setAttribute('aria-label','Add page');$('addInk').onclick=addPage;

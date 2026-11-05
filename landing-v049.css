@@ -79,3 +79,15 @@
   .landing-entry .landing-intro {left:20px}
   #auth.landing-page .landing-entry .landing-login {border-radius:18px}
 }
+
+.landing-entry .landing-hero-copy {
+  background:linear-gradient(96deg,#20274df5,#263b6bab 63%,transparent);
+}
+#auth.landing-page .landing-entry .landing-login {
+  background:linear-gradient(155deg,#fff 55%,#f0ebff);
+  border-color:#ded9ef;
+}
+#auth.landing-page .landing-entry #authSubmit {
+  background:#4c4381!important;
+  border-color:#4c4381!important;
+}

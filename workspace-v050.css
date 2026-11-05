@@ -132,3 +132,69 @@ body.dark #app { --desk-wash: #25394e; }
 #sidebar .workspace-choices .choice-grid {gap:8px}
 #sidebar .workspace-choices .mode-block {min-height:72px;padding:10px;border-radius:10px}
 #sidebar .workspace-choices .mode-block b {font-weight:500}
+
+/* Campus workspace: compact app chrome, illustrated study surfaces and coloured tools. */
+body:not(.dark) {
+  --paper:#f1f3fc;
+  --card:#fff;
+  --line:#dfe4f2;
+  --surface:#e8edfb;
+}
+body.school-mode:not(.dark) {
+  --paper:#eef7f1;
+  --card:#fffefb;
+  --line:#d9e9dd;
+  --surface:#e2f1e8;
+}
+#app {--student-accent:#6252a0;--student-chip:#ede7ff;--student-mint:#d9f3e7;--student-peach:#ffe9d5}
+body.school-mode #app {--student-accent:#267a66;--student-chip:#d9f3e7;--student-mint:#ebebff}
+#app .top {min-height:52px;padding:5px clamp(9px,1.8vw,24px)!important;background:#172746!important}
+body.school-mode #app .top {background:#153d39!important}
+#app .top #brand img {max-height:40px;width:auto}
+#app .top .header-ink {min-height:38px;padding:6px 10px}
+#app #main {background:var(--paper)}
+#app #main #screen {padding-inline:clamp(10px,1.6vw,25px)}
+#app #main .dashboard-heading {padding-block:8px;margin-bottom:4px}
+#app #main .dashboard-heading h1 {font-family:'Landing Inter',sans-serif;font-size:clamp(24px,3vw,42px);font-weight:400!important}
+#app #main .dashboard-heading .eyebrow {color:var(--student-accent)}
+body.dark #app #main .dashboard-heading .eyebrow {color:#c4b4ff}
+#app #main .dashboard-capture {
+  background:linear-gradient(92deg,#142849f5 0%,#253459b8 50%,#121d41a0),url("landing-hero-v049.webp") center 57% / cover!important;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;
+  min-height:150px;padding:clamp(14px,2vw,24px);border:0;border-radius:18px;
+}
+body.school-mode #app #main .dashboard-capture {
+  background:linear-gradient(92deg,#16443df5,#1450429c),url("landing-lecture-v049.webp") center / cover!important;
+}
+#app #main .dashboard-capture .row {display:flex;gap:8px}
+#app #main .dashboard-capture .gold {
+  display:inline-flex;flex-direction:column;justify-content:center;gap:5px;
+  min-height:72px;min-width:86px;padding:8px 10px;border:0;border-radius:14px;
+  background:var(--student-chip)!important;color:#23304b!important;font-size:.77rem;
+}
+#app #main .dashboard-capture .gold:nth-child(2) {background:var(--student-peach)!important}
+#app #main .dashboard-capture .gold:nth-child(3) {background:var(--student-mint)!important}
+#app #main .dashboard-capture .gold svg {width:22px;height:22px}
+#app #main .dashboard-metrics {gap:8px;border:0;margin-block:10px}
+#app #main .dashboard-metrics>div {border:1px solid var(--line);background:var(--card)!important;border-radius:12px;padding:7px}
+#app #main .dashboard-metrics b {font-size:1.25rem}
+#app #main .dashboard-sections {gap:10px}
+#app #main .dashboard-panel {border:1px solid var(--line);border-radius:15px;padding:12px}
+#app #main .dashboard-panel h2 svg,#app #main .tool svg {
+  box-sizing:content-box;width:20px;height:20px;padding:6px;border-radius:10px;
+  background:var(--student-chip);color:#473881!important;
+}
+#app #main .dashboard-panel:nth-child(2) h2 svg,#app #main .tool:nth-child(3n+2) svg {background:var(--student-mint);color:#245b4d!important}
+#app #main .dashboard-panel:nth-child(3) h2 svg,#app #main .tool:nth-child(3n+3) svg {background:var(--student-peach);color:#794322!important}
+#app #main .tool {border-radius:15px;min-height:82px}
+#app #main .card:has(#hubMood) {padding:12px 15px;margin-block:10px;border-radius:15px}
+#app #main .card:has(#hubMood) h2 {margin:0 0 8px}
+#app #main .card:has(#hubMood) select {min-height:38px}
+#app #quickAccess {background:#172746!important}
+#app #bottom .quick-link.active {background:#3b4070!important;border-color:#b7a6e9!important}
+@media(max-width:760px){
+  #app #main .dashboard-capture {grid-template-columns:minmax(0,1fr);min-height:0}
+  #app #main .dashboard-capture .row {gap:6px}
+  #app #main .dashboard-capture .gold {min-width:0;min-height:57px;padding:7px;font-size:.72rem}
+  #app #main .dashboard-capture .gold svg {width:18px;height:18px}
+}

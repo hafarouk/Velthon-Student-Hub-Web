@@ -91,3 +91,48 @@
   background:#4c4381!important;
   border-color:#4c4381!important;
 }
+
+/* Campus noticeboard: soft colour, an image-led cover and a stable vertical form. */
+#auth.landing-page {background:#f0edff}
+#auth.landing-page .landing-header {background:#faf8ff;border-bottom:1px solid #ddd6f5;padding-block:10px}
+#auth.landing-page .landing-brand img {max-width:54px;height:auto}
+#auth.landing-page .landing-entry {
+  max-width:1240px;gap:18px;align-items:center;
+  grid-template-columns:minmax(0,1.38fr) minmax(300px,1fr);
+}
+#auth.landing-page .landing-entry .landing-hero {min-height:340px;border-radius:24px}
+#auth.landing-page .landing-entry .landing-hero-copy {
+  min-height:340px;width:100%;padding:20px 24px 72px;
+  align-items:flex-start;text-align:left;
+  background:linear-gradient(90deg,#201845f2,#2d235fb3 58%,#211b4022);
+}
+#auth.landing-page .landing-entry .landing-product-logo {width:62px;height:62px;border-radius:9px}
+#auth.landing-page .landing-entry .landing-hero h1 {
+  margin:12px 0 0;text-align:left;font-weight:500;font-size:clamp(32px,4.6vw,64px);line-height:1.02;
+}
+#auth.landing-page .landing-entry .landing-hero-copy p {
+  font-size:clamp(12px,1.2vw,15px);letter-spacing:0;text-transform:none;color:#ffe4a5;
+}
+#auth.landing-page .landing-entry .landing-gold-rule {display:none}
+#auth.landing-page .landing-entry .landing-intro {left:24px}
+#auth.landing-page .landing-entry .landing-login {
+  padding:clamp(16px,2.4vw,30px);gap:13px;
+  border:1px solid #ded5fc;background:#fff;border-radius:22px;
+}
+#auth.landing-page .landing-entry .landing-welcome h2 {font-weight:500;font-size:clamp(23px,2.5vw,34px)}
+#auth.landing-page .landing-entry .landing-welcome p {margin-bottom:0}
+#auth.landing-page .landing-entry #authForm {
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:10px;
+}
+#auth.landing-page .landing-entry #authForm label:not([hidden]) {
+  width:100%;min-width:0;word-break:normal;overflow-wrap:normal;
+}
+#auth.landing-page .landing-entry #authForm label[hidden] {display:none!important}
+#auth.landing-page .landing-entry #authForm input {box-sizing:border-box;width:100%!important;min-width:0}
+#auth.landing-page .landing-entry #authSubmit {background:#5c3ca1!important;border-color:#5c3ca1!important}
+#auth.landing-page .landing-entry #offlineUnlock {align-self:center;white-space:normal}
+@media(max-width:760px) {
+  #auth.landing-page .landing-entry {grid-template-columns:minmax(0,1fr);gap:12px}
+  #auth.landing-page .landing-entry .landing-hero,
+  #auth.landing-page .landing-entry .landing-hero-copy {min-height:230px}
+}

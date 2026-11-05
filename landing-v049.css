@@ -14,3 +14,68 @@
 @media(max-width:760px){.landing-login{grid-template-columns:1fr;gap:20px}.landing-explore{padding-top:25px;padding-bottom:20px}}
 @media(max-width:480px){.landing-hero{height:520px}.landing-hero-photo{height:245px;top:auto;bottom:0;object-position:85% center}.landing-hero-copy{width:100%;height:275px;padding:20px 10px 12px;justify-content:center}.landing-product-logo{width:120px;height:120px}.landing-hero h1{font-size:29px;letter-spacing:-1px;margin-top:10px}.landing-hero-copy p{font-size:8px;letter-spacing:1.8px;margin-top:12px}.landing-gold-rule{margin-top:10px}.landing-page .landing-intro{bottom:16px}.landing-header{min-width:0}.landing-brand{gap:9px}}
 .landing-features{padding-top:18px;padding-bottom:19px}.landing-explore{padding-bottom:10px}.landing-section-head{margin-bottom:20px}.landing-footer{min-height:38px;margin-top:6px}
+
+/* Keep the real sign-in form in view beside the campus scene. */
+.landing-entry {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: clamp(16px,3vw,42px) 4.2%;
+  display: grid;
+  grid-template-columns: minmax(0,1.55fr) minmax(300px,1fr);
+  gap: clamp(16px,2.6vw,36px);
+  align-items: stretch;
+}
+.landing-entry .landing-hero {
+  min-height: 430px;
+  height: auto;
+  border-radius: 24px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #102d46;
+}
+.landing-entry .landing-hero-photo {width:100%;height:100%;object-fit:cover;object-position:56% center}
+.landing-entry .landing-hero-copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  min-height: 370px;
+  padding: 30px clamp(18px,3.4vw,45px) 74px;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(90deg,#102d46fa,#102d469e 62%,transparent);
+}
+.landing-entry .landing-product-logo {width: 90px;height: 90px;object-fit: contain}
+.landing-entry .landing-hero h1 {font-size:clamp(32px,4vw,58px);letter-spacing:-.04em;line-height:1.03}
+.landing-entry .landing-hero-copy p {font-size:10px;letter-spacing:.16em;padding:0}
+.landing-entry .landing-intro {left:clamp(18px,3.4vw,45px);right:auto;bottom:18px;z-index:2}
+.landing-entry .landing-motion {z-index:2}
+#auth.landing-page .landing-entry .landing-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: clamp(20px,3vw,42px);
+  margin: 0;
+  border: 1px solid #d5dfe6;
+  border-radius: 24px;
+  background: #fffefa;
+  box-shadow: 0 16px 44px #1936500d;
+}
+.landing-entry .landing-welcome {border:0;padding:0}
+.landing-entry .landing-welcome h2 {font-size:clamp(24px,3vw,36px);line-height:1.12;letter-spacing:-.035em}
+#auth.landing-page .landing-entry #authForm {grid-template-columns:minmax(0,1fr);gap:13px}
+#auth.landing-page .landing-entry #authForm label[hidden] {display:none}
+#auth.landing-page .landing-entry #authForm label {font-size:13px}
+#auth.landing-page .landing-entry #authForm input {font-size:16px;min-height:46px!important}
+#auth.landing-page .landing-entry #authSubmit {width:100%;min-height:46px;border-radius:9px}
+.landing-entry :is(button,input,a):focus-visible {outline:2px solid #a97d25;outline-offset:3px}
+@media(max-width:760px){
+  .landing-entry {grid-template-columns:1fr;gap:14px;padding:14px}
+  .landing-entry .landing-hero {min-height:0;border-radius:18px}
+  .landing-entry .landing-hero-copy {min-height:220px;padding:20px 20px 66px}
+  .landing-entry .landing-product-logo {width:62px;height:62px}
+  .landing-entry .landing-intro {left:20px}
+  #auth.landing-page .landing-entry .landing-login {border-radius:18px}
+}

@@ -67,3 +67,68 @@ body.school-mode #app .top { background:#173e40!important; }
 @media (hover:hover) {
   #app #main :is(.tool,.item):hover { border-color:var(--section-mark); }
 }
+
+/* Study desk review. Style the existing controls and keep every route in place. */
+#app {
+  --desk-tone: #294664;
+  --desk-highlight: #b28b42;
+  --desk-wash: #eef1f4;
+}
+body.school-mode #app {
+  --desk-tone: #24594e;
+  --desk-highlight: #b28b42;
+  --desk-wash: #e7f2e9;
+}
+body.dark #app { --desk-wash: #25394e; }
+#app #main .dashboard-heading h1 {
+  font-family: Georgia, serif;
+  font-weight: 400 !important;
+  letter-spacing: -.035em;
+  font-size: clamp(1.85rem,4vw,3.25rem);
+}
+#app #main .dashboard-capture {
+  background: linear-gradient(120deg,#193149,var(--desk-tone)) !important;
+  border-radius: 16px;
+  border-inline-start: 4px solid var(--desk-highlight);
+}
+#app #main .dashboard-panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  padding: clamp(12px,2vw,20px);
+}
+#app #main .dashboard-panel .item {
+  border-radius: 9px;
+  margin-block: 5px;
+}
+#app #main .dashboard-panel .item:hover,
+#app #main .tool:hover {
+  background: var(--desk-wash);
+}
+#app #main .dashboard-metrics > div { border-radius: 9px; }
+#app #main .dashboard-tools .tool { min-height: 86px; border-radius: 12px; }
+#app :is(button,summary,input,select,textarea,a):focus-visible {
+  outline: 2px solid #b68b3e;
+  outline-offset: 3px;
+}
+#app .notebook-overview {
+  border-color: var(--line);
+  background: var(--card);
+}
+#app .notebook-overview summary { color: var(--ink); }
+@media (max-width:640px) {
+  #app #main .dashboard-capture { padding: 16px; }
+  #app #main .dashboard-capture .row { gap: 6px; }
+  #app #main .dashboard-panel { padding: 12px; }
+}
+
+#sidebar .workspace-choices {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+}
+#sidebar .workspace-choices h2 {margin:0 0 12px;font-size:1.15rem}
+#sidebar .workspace-choices .choice-grid {gap:8px}
+#sidebar .workspace-choices .mode-block {min-height:72px;padding:10px;border-radius:10px}
+#sidebar .workspace-choices .mode-block b {font-weight:500}

@@ -1,0 +1,19 @@
+plugins { id 'com.android.application' version '8.13.2' }
+android {
+    namespace 'com.velthon.studenthub'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'com.velthon.studenthub'
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName '1.0'
+    }
+    sourceSets.main.res.srcDir layout.buildDirectory.dir('generated/hub-res')
+}
+tasks.register('copyHubIcon', Copy) {
+    from '../../logo-student-v034.png'
+    into layout.buildDirectory.dir('generated/hub-res/drawable-nodpi')
+    rename { 'hub.png' }
+}
+tasks.named('preBuild').configure { dependsOn 'copyHubIcon' }

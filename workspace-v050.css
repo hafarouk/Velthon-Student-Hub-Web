@@ -23,3 +23,29 @@ body.dark{--paper:#142236;--ink:#eaf0f6;--muted:#aebed0;--dark:#193149;--gold:#d
 @container(max-width:540px){#app #inkPanel .ribbon-properties{flex:1 1 100%!important;justify-content:flex-start;border-top:1px solid var(--line)!important;padding-top:3px!important;gap:12px!important}.ribbon-properties input[type=range]{width:65px!important}.ribbon-vertical{flex-basis:39px;width:39px}.studio-stage>.studio-paper-scroll{padding:8px}.ribbon-command{gap:3px}.ribbon-all-button .ribbon-menu-label{display:inline}}
 @media(pointer:coarse){.ribbon-vertical{width:45px;flex-basis:45px}.ribbon-vertical button{width:36px;height:36px;min-height:36px!important}.ribbon-command{height:38px}.ribbon-command button{height:36px;min-height:36px!important}.ribbon-popover button{min-height:42px}}
 @media(max-width:699px){#app .top{padding:6px 10px!important;gap:6px}#app .top .header-ink{font-size:11px}#app #bottom .quick-link{min-height:44px}#app #main label{font-weight:400!important}}
+
+/* Campus uses a lecture-theatre palette; school uses a ruled notebook motif. */
+body { --campus-deep:#233e64; --campus-accent:#f4c767; --campus-wash:#e8edf8; }
+body.school-mode { --campus-deep:#185149; --campus-accent:#ffda76; --campus-wash:#e4f3e9; }
+#app .dashboard-capture {
+  background:linear-gradient(110deg,var(--campus-deep) 20%,#334b80 100%)!important;
+  color:white; border:0; border-inline-start:4px solid var(--campus-accent);
+  border-radius:18px 5px 18px 5px; padding:clamp(16px,3vw,32px);
+}
+body.school-mode #app .dashboard-capture {
+  background:repeating-linear-gradient(0deg,transparent 0 23px,#ffffff12 23px 24px),var(--campus-deep)!important;
+  border-radius:6px 21px 6px 21px;
+}
+#app .dashboard-capture :is(p,h2) { color:white; }
+#app .dashboard-capture .gold { background:var(--campus-accent); color:#172c40; }
+#app .dashboard-heading h1 { font-size:clamp(1.65rem,4vw,2.75rem); line-height:1.12; }
+#app .dashboard-panel { border-block-start:3px solid var(--campus-accent); }
+body:not(.dark) #app .dashboard-metrics>div { background:var(--campus-wash); }
+#app #connectionIndicator[data-mode="offline"] { border:1px dashed currentColor; }
+body.school-mode #app .top { background:#173e40!important; }
+@media(max-width:640px){
+  #app .dashboard-capture .row { display:flex; flex-wrap:wrap; gap:6px; }
+  #app .dashboard-capture button { min-height:44px; }
+  #app .dashboard-metrics { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #app .dashboard-sections { display:grid; grid-template-columns:minmax(0,1fr); }
+}

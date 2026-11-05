@@ -1,0 +1,27 @@
+name: Publish tested Android pilot
+on:
+  push:
+    branches: [main]
+    paths: ['android-pilot.json']
+permissions:
+  actions: read
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish the selected build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          run=$(jq -er '.run | numbers' android-pilot.json)
+          digest=$(jq -er '.sha256' android-pilot.json)
+          tag="android-pilot-$run"
+          gh run download "$run" -n Velthon-Student-Hub-Android -D "$RUNNER_TEMP/pilot"
+          apk="$RUNNER_TEMP/pilot/Velthon-Student-Hub.apk"
+          echo "$digest  $apk" | sha256sum -c -
+          verifier=$(find "$ANDROID_HOME/build-tools" -name apksigner | sort -V | tail -1)
+          "$verifier" verify --verbose "$apk"
+          gh release create "$tag" "$apk" --target "$GITHUB_SHA" --prerelease --title "Student Hub Android pilot" --notes "Install the APK and sign in using your existing Student Hub account. This pilot uses your browser to open the live Hub."

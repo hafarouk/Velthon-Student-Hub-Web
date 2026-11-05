@@ -49,3 +49,21 @@ body.school-mode #app .top { background:#173e40!important; }
   #app .dashboard-metrics { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
   #app .dashboard-sections { display:grid; grid-template-columns:minmax(0,1fr); }
 }
+/* Workspace chrome applies across planner, lecture, study, settings and library views. */
+#app #main { --section-mark:#5577a3; }
+.school-mode #app #main { --section-mark:#278477; }
+#app #main .section-title h2 { display:flex; align-items:center; gap:.5rem; }
+#app #main .section-title h2::before {
+  content:""; width:3px; height:1em; background:var(--section-mark); border-radius:2px;
+}
+#app #main .card { border-radius:14px; padding:clamp(12px,2vw,20px); }
+.school-mode #app #main .card { border-radius:5px 16px 16px 5px; border-inline-start:3px solid var(--section-mark); }
+#app #main .tool { min-height:96px; padding:14px; }
+#app #main .tool svg { margin-bottom:8px; }
+#app #main :is(button,a,input,select,textarea):focus-visible {
+  outline:2px solid var(--section-mark); outline-offset:3px;
+}
+#app #main .tabs { scrollbar-width:thin; gap:5px; }
+@media (hover:hover) {
+  #app #main :is(.tool,.item):hover { border-color:var(--section-mark); }
+}

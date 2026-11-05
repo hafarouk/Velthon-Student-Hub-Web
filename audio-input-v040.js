@@ -12,13 +12,13 @@ class InputLevel {
   this.noise=Math.max(.00001,this.noise);
   const active=raw.rms>Math.max(.00003,this.noise*1.2)&&raw.peak>.00008;
   if(active){this.activity+=dt;this.quiet=0;}else this.quiet+=dt;
-  const maximum=this.mode==='high'?32:this.mode==='standard'?1:16;
+  const maximum=this.mode==='high'?48:this.mode==='standard'?1:16;
   let desired=this.gain;
   if(this.mode==='standard')desired=1;
   else if(raw.rms>.00003&&raw.peak>.00008)desired=clamp(.075/Math.max(.00003,raw.rms),.25,maximum);
   // Real overload is handled immediately; silence never drives gain toward maximum.
-  if(raw.peak*this.gain>.90)desired=Math.min(desired,.85/Math.max(.001,raw.peak));
-  const tau=desired<this.gain?.06:.65;
+  if(raw.peak>0)desired=Math.min(desired,.85/raw.peak);
+  const tau=desired<this.gain?.035:this.mode==='high'?.28:.65;
   this.gain=this.mode==='standard'?1:clamp(this.gain+(desired-this.gain)*(1-Math.exp(-dt/tau)),.25,maximum);
   this.clipped=processed.peak>.98?this.clipped+dt:Math.max(0,this.clipped-dt*2);
   const target=clamp((db(processed.rms)+72)/66,0,1);

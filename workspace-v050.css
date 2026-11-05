@@ -198,3 +198,19 @@ body.school-mode #app #main .dashboard-capture {
   #app #main .dashboard-capture .gold {min-width:0;min-height:57px;padding:7px;font-size:.72rem}
   #app #main .dashboard-capture .gold svg {width:18px;height:18px}
 }
+
+/* Keep daily check-in controls and the selected inspiration in one compact strip. */
+#app #main .dashboard-capture {min-height:112px;padding-block:13px}
+#app #main .dashboard-heading {padding-block:3px}
+#app #main .dashboard-checkin {
+  display:grid;grid-template-columns:auto auto minmax(0,1fr);
+  align-items:center;gap:10px;padding:10px 14px;
+}
+#app #main .dashboard-checkin h2 {font-size:1rem;margin:0}
+#app #main .dashboard-checkin .row {gap:8px}
+#app #main .dashboard-checkin label {font-size:.8rem;margin:0}
+#app #main .dashboard-checkin select {margin:3px 0 0}
+#app #main .dashboard-checkin .quote {margin:0;padding:7px 10px;font-size:.9rem;line-height:1.35}
+@media(max-width:1050px) {
+  #app #main .dashboard-checkin {grid-template-columns:minmax(0,1fr)}
+}

@@ -14,9 +14,13 @@
   function checkIn() {
     const p=state.profile;
     const mood=p.checkInDate===Student.day() && Object.hasOwn(encouragement,p.studyMood)?p.studyMood:'';
-    const pref=p.inspirationChoice || 'Off';
-    const line=mood && pref!=='Off'?encouragement[mood][pref==='Bible verse'?1:0]:'';
-    return '<section class="card"><h2>Study check-in</h2><div class="row wrap"><label>How are you feeling? <select id="hubMood"><option value="">Choose a mood</option>'+options(Object.keys(encouragement),mood)+'</select></label><label>Inspiration <select id="hubInspiration">'+options(['Off','Motivational quote','Bible verse'],pref)+'</select></label></div>'+(line?'<p class="quote">'+esc(line)+'</p>':'')+'</section>';
+    const pref=p.inspirationChoice || 'Motivational quote';
+    const now=new Date();
+    const dayIndex=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000);
+    const choices=Object.values(encouragement);
+    const selection=mood?encouragement[mood]:choices[dayIndex%choices.length];
+    const line=pref==='Off'?'':selection[pref==='Bible verse'?1:0];
+    return '<section class="card dashboard-checkin"><h2>Study check-in</h2><div class="row wrap"><label>How are you feeling? <select id="hubMood"><option value="">Choose a mood</option>'+options(Object.keys(encouragement),mood)+'</select></label><label>Inspiration <select id="hubInspiration">'+options(['Off','Motivational quote','Bible verse'],pref)+'</select></label></div>'+(line?'<p class="quote" aria-live="polite">'+esc(line)+'</p>':'')+'</section>';
   }
   function planSettings() {
     const p=state.profile.coursePlanner || {};
